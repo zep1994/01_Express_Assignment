@@ -10,7 +10,7 @@ router.get('/add-game', (req, res, next) => {
 })
 
 //GET
-router.post('/product', (req, res, next) => {
+router.post('/game', (req, res, next) => {
     //redirect and log incoming data
     //by default req.body does not parse the data for you
     console.log(req.body)
