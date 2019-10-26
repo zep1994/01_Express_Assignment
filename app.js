@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 const app = express()
 
@@ -10,13 +11,13 @@ const meetRoutes = require('./routes/meets')
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-
-app.use(adminRoutes)
+// '/admin, GET request
+app.use('/admin', adminRoutes)
 app.use(meetRoutes)
 
 
 app.use((req, res) => {
-    res.send('<h1>404</h1>')
+    res.sendFile(path.join(__dirname, 'views', '404.html'))
 })
 
 
