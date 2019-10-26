@@ -15,7 +15,9 @@ app.use(adminRoutes)
 app.use(meetRoutes)
 
 
-
+app.use((req, res) => {
+    res.send('<h1>404</h1>')
+})
 
 
 app.listen(3000)
