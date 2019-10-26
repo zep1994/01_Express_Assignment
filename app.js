@@ -1,25 +1,20 @@
 const express = require('express')
-const app = express()
 const bodyParser = require('body-parser')
-//const routes = require('./routes/routes')
+
+const app = express()
+
+const adminRoutes = require('./routes/admin')
+const meetRoutes = require('./routes/meets')
+
 
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/add-game', (req, res, next) => {
-    res.send("<form action='/product' method='POST'><input type='text' name='title'/><button='submit'>Submit</submit></form>")
-})
 
-//GET
-app.use('/product', (req, res, next) => {
-    //redirect and log incoming data
-    res.redirect('/')
-    console.log(req.body)
-})
+app.use(adminRoutes)
+app.use(meetRoutes)
 
-app.use('/', (req, res, next) => {
-    res.send("<h1>Hello Tom</h1>")
-})
+
 
 
 
